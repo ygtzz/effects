@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>slide down</title>
+    <link rel="stylesheet" type="text/css" href="css/test6.css">
+    <style>
+        .slider {
+            overflow-y: hidden;
+            background: pink;
+            height: 200px;
+            width: 200px;
+            transition:all .5s cubic-bezier(0,1,.5,1);
+            transform-origin:top;            
+        }
+        .slider.closed {
+            transform:scaleY(0);
+        }
+    </style>
+</head>
+
+<body>
+     <div style="height: 200px; width: 200px; border: 1px solid #ccc;">
+        <div class="slider" id="slider">这里是内容</div>
+    </div>
+    <button onclick="fSlide()">点击看看</button>
+    <script>
+        function fSlide(){
+            document.getElementById('slider').classList.toggle('closed');
+        }
+    </script>
+</body>
+
+</html>
