@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>slide down</title>
+    <style>
+        a {
+            width:100px;
+            position: relative;
+            border: 1px solid #EDEDED;
+            padding-left: 40px;
+            margin-left: 10px;
+            padding-right: 20px;
+            margin-right: 10px;
+            display: block;
+            line-height: 40px;
+            /*-webkit-transition: all 0.6s ease-in;
+            transition: all 0.6s ease-in;*/
+        }
+        a:hover {
+            border: 1px solid #367dff;
+        }
+        .c-btn--border-line:after, .c-btn--border-line:before {
+            box-sizing: border-box;
+            border: 1px solid transparent;
+            width: 0;
+            height: 0;
+        }
+        .c-btn--border-line:hover:after, .c-btn--border-line:hover:before {
+            width: 100%;
+            height: 100%;
+        }
+        .c-btn--border-line:before {
+            bottom: 0;
+            right: 0;
+            -webkit-transition: border-color 0s ease-in 0.4s,width 0.2s ease-in 0.2s,height 0.2s ease-in;
+            transition: border-color 0s ease-in 0.4s,width 0.2s ease-in 0.2s,height 0.2s ease-in;
+        }
+        .c-btn--border-line:hover:before {
+            border-bottom-color: #367dff;
+            border-left-color: #367dff;
+            -webkit-transition: border-color 0s ease-out 0.4s,width 0.2s ease-out 0.4s,height 0.2s ease-out 0.6s;
+            transition: border-color 0s ease-out 0.4s,width 0.2s ease-out 0.4s,height 0.2s ease-out 0.6s;
+        }
+        .c-btn--border-line:after {
+            top: 0;
+            left: 0;
+            -webkit-transition: border-color 0s ease-in 0.8s,width 0.2s ease-in 0.6s,height 0.2s ease-in 0.4s;
+            transition: border-color 0s ease-in 0.8s,width 0.2s ease-in 0.6s,height 0.2s ease-in 0.4s;
+        }
+        .c-btn--border-line:hover:after {
+            border-top-color: #367dff;
+            border-right-color: #367dff;
+            -webkit-transition: width 0.2s ease-out,height 0.2s ease-out 0.2s;
+            transition: width 0.2s ease-out,height 0.2s ease-out 0.2s;
+        }
+        .c-btn:after {
+            content: '';
+            display: block;
+            position: absolute;
+        }
+        .c-btn:before {
+            content: '';
+            display: block;
+            position: absolute;
+        }
+        .grow{width:200px;height:100px;border:1px solid lightblue;margin-top:50px;position:relative}
+        .grow:before,.grow:after{content:'';display:block;position:absolute;box-sizing:border-box;border:1px solid transparent;width:0;height:0;}
+        .grow:before{top:0;left:0;
+            transition:border-color 0s ease-in 1.6s,height .4s ease-in .8s,width .4s ease-in 1.2s;
+         }
+        .grow:after{bottom:0;right:0;
+            transition:border-color 0s ease-in .8s,height .4s ease-in,width .4s ease-in .4s;
+         }
+        .grow:hover:before,.grow:hover:after{width:100%;height:100%;}
+        .grow:hover:before{border-top-color:#367dff;border-right-color:#367dff;transition:width .4s ease-out,height .4s ease-out .4s;}
+        .grow:hover:after{border-left-color:#367dff;border-bottom-color:#367dff;transition:border-color 0s ease-out .8s,width .4s ease-out .8s,height .4s ease-out 1.2s;}
+    </style>
+</head>
+
+<body>
+    <a class="c-btn c-btn--border-line" href="http://www.jq22.com/jquery-plugins背景-1-jq"><i class="fa fa-delicious ls"></i>背景</a>
+    <div class="grow"></div>
+</body>
+
+</html>
