@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>水波涟漪</title>
+    <style>
+        .dot-wrap{
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%)
+        }
+        .dot:before{
+            content:'';
+            position: absolute;
+            width:10px;
+            height:10px;
+            background:darkorange;
+            border-radius:50%;
+            z-index:2;
+        }
+        .dot:after{
+            content:'';
+            position: absolute;
+            width:10px;
+            height:10px;
+            background:darkorange;
+            border-radius:50%;
+            animation: ripple 1s ease infinite;
+            z-index:1;
+        }
+        @keyframes ripple{
+            0%{
+                transform:scale(1);
+                opacity:.75
+            }
+            100%{
+                transform:scale(5);
+                opacity:0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dot-wrap">
+        <div class="dot"></div>
+    </div>
+</body>
+
+</html>
