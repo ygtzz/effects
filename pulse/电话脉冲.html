@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>phone pulse</title>
+    <style>
+        .pulse-wrap{
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            width:200px;
+            height:200px;
+        }
+        .pulse{
+            width:200px;
+            height:200px;
+            border:2px solid lightblue;
+            border-radius:50%;
+            position: absolute;
+            box-sizing: border-box;
+        }
+        .pulse:nth-of-type(1){
+            animation: wave 3s linear infinite;
+        }
+        .pulse:nth-of-type(2){
+            animation: wave 3s linear infinite -1.5s;
+        }
+        /*.pulse:nth-of-type(3){
+            animation: wave 8s linear infinite 1s;
+        }*/
+        .phone{
+            width:80px;
+            height:80px;
+            background:lightblue;
+            position:absolute;
+            border-radius:50%;
+            color:#fff;
+            text-align: center;
+            line-height: 80px;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+        }
+        @keyframes wave{
+            0%{
+                transform: scale(.4);
+                opacity: .8;
+            }
+            90%{
+                transform: scale(.85);
+                opacity: .4
+            }
+            100%{
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pulse-wrap">
+        <div class="pulse"></div>
+        <div class="pulse"></div>
+        <!--<div class="pulse"></div>-->
+        <div class="phone">电话</div>            
+    </div>
+</body>
+</html>
