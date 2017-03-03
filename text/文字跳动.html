@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文字跳动</title>
+    <style>
+        h2{
+            position:absolute;
+            top:30%;
+            left:45%;
+            transform: translate(-50%,-50%);
+        }
+        h2 span{
+            font-size:18px;
+            float:left;
+            margin-right:3px;
+        }
+        span:nth-child(1){
+            animation: jump 1s linear infinite alternate;
+        }
+        span:nth-child(2){
+            animation: jump 1s linear infinite .2s alternate;
+        }
+        span:nth-child(3){
+            animation: jump 1s linear infinite .4s alternate;
+        }
+        span:nth-child(4){
+            animation: jump 1s linear infinite .6s alternate;
+        }
+        span:nth-child(5){
+            animation: jump 1s linear infinite .8s alternate;
+        }
+        @keyframes jump{
+            0%{
+                transform:translateY(0);
+                color:lightcoral;
+            }
+            50%{
+                transform:translateY(-10px);
+                color:lightgreen;
+            }   
+            100%{
+                transform:translateY(10px);
+                color:lightblue;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>
+        <span>我</span>
+        <span>爱</span>
+        <span>你</span>
+        <span>中</span>
+        <span>国</span>
+    </h2>
+</body>
+</html>
