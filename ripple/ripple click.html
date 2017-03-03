@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ripple click</title>
+    <style>
+        body {
+            height: calc(100vh - 16px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #1c3041;
+            user-select: none;
+        }
+        div {
+            width: 200px;
+            height: 50px;
+            border-radius: 3px;
+            position: relative;
+            text-align: center;
+            font: bold 17px/50px Verdana;
+            color: #1c3041;
+            background: #3abeff;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .circle {
+            margin: -100px;
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+            position: absolute;
+            background: #1c3041;
+            transform: scale(0);
+            pointer-events: none;
+            animation: circle 1s ease;
+        }
+        @keyframes circle {
+            from {
+                opacity: 0.8;
+                transform: scale(0);
+            }
+            to {
+                opacity: 0;
+                transform: scale(2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>BOOM</div>
+    <script>
+        var button = document.querySelector('div');
+        button.onmousedown = function(e) {
+            var x = (e.offsetX == undefined) ? e.layerX : e.offsetX;
+            var y = (e.offsetY == undefined) ? e.layerY : e.offsetY;
+            var circle = document.createElement('div');
+            circle.className = 'circle';
+            circle.style.top = y + 'px';
+            circle.style.left = x + 'px';
+            button.appendChild(circle);
+            setTimeout(function() {
+                button.removeChild(circle);
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
