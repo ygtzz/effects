@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跑马灯</title>
+    <style>
+        *{padding:0;margin:0;}
+        .wrap{width:230px;height:50px;overflow:hidden;margin:0 auto;margin-top:200px;overflow:hidden;position:relative;}
+        .list{width:470px;height:50px;list-style:none;position:absolute;animation: run 3s linear infinite;}
+        .list:hover{animation-play-state:paused;}
+        .item{display:inline-block;width:50px;height:50px;color:#fff;font-size:30px;text-align:center;line-height:50px;}
+        .item:not(:last-child){margin-right:5px;}
+        .item:nth-child(1),.item:nth-child(5){
+            background:lightcoral;
+        }
+        .item:nth-child(2),.item:nth-child(6){
+            background:lightblue;
+        }
+        .item:nth-child(3),.item:nth-child(7){
+            background: lightgreen;
+        }
+        .item:nth-child(4),.item:nth-child(8){
+            background: lightslategray;
+        }
+        @keyframes run{
+            0%{
+                transform:translateX(0);
+            }
+            100%{
+                transform:translateX(-220px)
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrap">
+            <ul class="list">
+                <li class="item">1</li>
+                <li class="item">2</li>
+                <li class="item">3</li>
+                <li class="item">4</li>
+                <li class="item">1</li>
+                <li class="item">2</li>
+                <li class="item">3</li>
+                <li class="item">4</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
