@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>loading bar</title>
+	<style>
+		.loadBar{
+			width:500px;
+			height:20px;
+		}
+		.loadBar-inner{
+			height:100%;
+			background: linear-gradient(45deg, #2989d8 33%,#7db9e8 34%,#7db9e8 59%,#2989d8 60%);
+			background-size: 60px 20px;
+			animation:load-bar 3s ease-in infinite
+		}
+		@keyframes load-bar{
+			0%{
+				width:0%
+			}
+			100%{
+				width:100%
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="loadBar">
+		<div class="loadBar-inner"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tip Demo</title>
+    <style>
+        .event-txt {
+            position: absolute;
+            top: 110px;
+            left: 950px;
+            width: 300px;
+            padding: 15px 20px;
+            font-size: 14px;
+            color: #878787;
+            -webkit-transition: left 0.5s;
+            -moz-transition: left 0.5s;
+            -ms-transition: left 0.5s;
+            transition: left 0.5s;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            -ms-border-radius: 3px;
+            border-radius: 3px;
+            background-color: #fff;
+            border: 1px solid #1cbcb4;
+        }
+        
+        .event-txt .arrow {
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            margin-left: -8px;
+            height: 0;
+            width: 0;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            -ms-border-radius: 3px;
+            border-radius: 3px;
+            border-top: 8px solid #1cbcb4;
+            border-left: 8px dashed transparent;
+            border-right: 8px dashed transparent;
+        }
+        
+        .event-txt .arrow:after {
+            left: -8px;
+            bottom: 2px;
+            border-top: 8px solid #fff;
+            border-left: 8px dashed transparent;
+            border-right: 8px dashed transparent;
+        }
+        
+        .event-txt .arrow:after {
+            position: absolute;
+            content: '';
+            width: 0;
+            height: 0;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            -ms-border-radius: 3px;
+            border-radius: 3px;
+        }
+        
+        .interest-item-tip {
+            position: absolute;
+            border: 1px solid #aaa;
+            background: #fff;
+            width: 250px;
+            padding: 5px;
+            border-radius: 5px;
+            left:700px;
+        }
+        
+        .interest-item-tip:before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 50%;
+            margin-top: -6px;
+            border: 12px solid transparent;
+            z-index: 10;
+            border-right: 12px solid #aaa;
+        }
+        
+        .interest-item-tip:after {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            margin-top: -5px;
+            border: 10px solid transparent;
+            z-index: 10;
+            border-right: 10px solid #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="event-txt" id="event-txt" style="left: 150px;">
+        <i class="arrow"></i> 2015腾讯全球合作伙伴大会重庆召开：平台应用数超过400万、上市公司20家
+    </div>
+    <div>
+        出处：http://open.qq.com/
+    </div>
+    <div class='interest-item-tip'>
+        您可以创建多个“兴趣”，作为后续批量创建广告时的测试维度。 如果在批量创建广告时，未使用“兴趣”作为测试维度，则无论创建几个“兴趣
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>3 col layout</title>
+    <link rel="stylesheet" type="text/css" href="../lib/quick-layout.css" />
+    <style type="text/css">
+        .container {
+            width: 1000px;
+        }
+        
+        .left {
+            width: 200px;
+            border: 1px solid #eee;
+        }
+        
+        .left-bar {
+            width: 200px;
+            height: 500px;
+        }
+        
+        .left-bar-fixed {
+            position: fixed;
+            bottom: 350px;
+        }
+        
+        .right-content {
+            width: 500px;
+            height: 3800px;
+        }
+        
+        .right-bar {
+            border: 1px solid #eee;
+        }
+        
+        .right-bar-sec {
+            width: 200px;
+            height: 500px;
+        }
+        
+        .right-bar-sec-fixed {
+            position: fixed;
+            bottom: 350px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container fix">
+        <div class="left l">
+            <div id="left-bar" class="left-bar bg-navy"></div>
+        </div>
+        <div class="right l">
+            <div class="right-content l bg-teal"></div>
+            <div class="right-bar l">
+                <div id="right-bar-sec" class="right-bar-sec bg-orange"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../../lib/jquery.min.js"></script>
+<script type="text/javascript">
+    //left and right-bar的border是使用其来占位，元素fixed后，需要有其他元素来占位，使其不与中部元素重叠
+    var $rightBar = $('#right-bar-sec'),
+        $lefBar = $('#left-bar');
+    var fSetFixedDebounce = fDebounce(fSetFixed, 100);
+    $(function() {
+        $(window).scroll(function() {
+            fSetFixedDebounce();
+        });
+    });
+
+    function fSetFixed() {
+        console.log(11111)
+        var nScrollTop = parseInt($(this).scrollTop());
+        if (nScrollTop > 300) {
+            $lefBar.addClass('left-bar-fixed');
+            $rightBar.addClass('right-bar-sec-fixed');
+        } else {
+            $lefBar.removeClass('left-bar-fixed');
+            $rightBar.removeClass('right-bar-sec-fixed');
+        }
+    }
+
+    function fDebounce(fAction, nTime) {
+        var last;
+        return function() {
+            var ctx = this,
+                args = arguments;
+            clearTimeout(last);
+            last = setTimeout(function() {
+                fAction.apply(ctx, args)
+            }, nTime);
+        }
+    }
+</script>
+
+</html>

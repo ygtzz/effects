@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>3d card</title>
+    <style type="text/css">
+    *{margin:0;padding:0;}
+    .container {
+        width: 200px;
+        height: 260px;
+        position: relative;
+        perspective: 800px;
+        margin:0 auto;
+        margin-top:50px;
+    }
+    
+    #card {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transform-style: preserve-3d;
+        transition: transform 1s;
+    }
+    .card{transform-origin:right center;}
+    
+    #card figure {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        line-height: 260px;
+        backface-visibility: hidden;
+        font-size: 140px;
+        color: #fff;
+        text-align: center;
+    }
+    
+    #card .front {
+        background-color: red;
+    }
+    
+    #card .back {
+        background-color: blue;
+        transform: rotateY(180deg);
+    }
+    .flipped1{transform:rotateY(180deg);}
+    .flipped2 {
+        transform: translateX(-100%) rotateY(180deg);
+    }
+    
+    .btn {
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+        margin:0 auto;
+    }
+    .btn-current{background:#3d7878;}
+    </style>
+</head>
+
+<body>
+	<div style="text-align: center;">
+		<button id="btnMode1" class="btn btn-current">Mode1</button>
+		<button id="btnMode2" class="btn" style="margin-left:20px;">Mode2</button>
+	</div>
+    <section class="container" style="margin-top:30px;">
+        <div id="card">
+            <figure class="front">1</figure>
+            <figure class="back">2</figure>
+        </div>
+    </section>
+    <div style="margin-top:30px;text-align:center;">
+        <button id="btnFlip" class="btn">Flip</button>
+    </div>
+    <script type="text/javascript" src="../../lib/jquery.min.js"></script>
+    <script type="text/javascript">
+    var sFlipClass = 'flipped1';
+    var $card = $('#card');
+    $(function() {
+    	$('#btnMode1').click(function(){
+    		$('button').removeClass('btn-current');
+    		$(this).addClass('btn-current');
+    		$card.removeClass(sFlipClass).removeClass('card');
+    		sFlipClass = 'flipped1';
+    	});
+    	$('#btnMode2').click(function(){
+    		$('button').removeClass('btn-current');
+    		$(this).addClass('btn-current');
+    		$card.removeClass(sFlipClass).addClass('card');
+    		sFlipClass = 'flipped2';
+    	});
+        $('#btnFlip').click(function() {
+            if ($card.hasClass(sFlipClass)) {
+                $card.removeClass(sFlipClass);
+            } else {
+                $card.addClass(sFlipClass);
+            }
+        });
+    });
+    </script>
+</body>
+
+</html>

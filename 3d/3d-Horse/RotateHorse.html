@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" onselectstart="return false">
+<head>
+	<meta charset="UTF-8">
+	<title>rotate horse</title>
+	<style type="text/css">
+		body{padding-top:400px;background-color:#000;}
+		.stage{width:250px;margin:0 auto;perspective: 800px;transform:rotateX(-15deg);}
+		.container{transform-style:preserve-3d;}
+		.container img{position:absolute;-webkit-box-reflect:below 0 -webkit-linear-gradient(transparent,transparent 50%,rgba(255,255,255,.3));}
+		/* img:nth-child(1){transform:rotateY(0deg)   translateZ(250px);}
+		img:nth-child(2){transform:rotateY(40deg)  translateZ(250px);}
+		img:nth-child(3){transform:rotateY(80deg)  translateZ(250px);}
+		img:nth-child(4){transform:rotateY(120deg) translateZ(250px);}
+		img:nth-child(5){transform:rotateY(160deg) translateZ(250px);}
+		img:nth-child(6){transform:rotateY(200deg) translateZ(250px);}
+		img:nth-child(7){transform:rotateY(240deg) translateZ(250px);}
+		img:nth-child(8){transform:rotateY(280deg) translateZ(250px);}
+		img:nth-child(9){transform:rotateY(320deg) translateZ(250px);} */
+	</style>
+</head>
+<body>
+	<div class="stage">
+		<div class="container">
+			<img src="imgs/mm1.jpg" />
+			<img src="imgs/mm3.jpg" />
+			<img src="imgs/mm4.jpg" />
+			<img src="imgs/mm6.jpg" />
+			<img src="imgs/mm7.jpg" />
+			<img src="imgs/mm8.jpg" />
+			<img src="imgs/mm10.jpg" />
+			<img src="imgs/mm13.jpg" />
+			<img src="imgs/mm15.jpg" />
+		</div>
+	</div>
+	<script type="text/javascript" src="../../lib/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var $imgs = $('.container img'),
+			    nImgNum = $imgs.length;
+			    nDeg = 360 / nImgNum;
+		    $imgs.attr('ondragstart','return false').each(function(i){
+		    	$(this).css({
+		    		transform:'rotateY('+ i*nDeg +'deg) translateZ(350px)'
+		    	});
+		    });
+		    var degx =0,degy = 0;
+		    //mouse down,move,up
+		    $(document).mousedown(function(e){
+		    	var x = e.clientX,
+		    		y = e.clientY;
+	    		$(this).mousemove(function(e){
+	    			var x_current = e.clientX,
+	    				y_current = e.clientY,
+	    				xN = x_current - x,
+	    				yN = y_current - y;
+	    				degx = degx - yN * 0.2;
+	    				degy = degy + xN * 0.2;
+	    			//图片在旋转时候大小变化
+	    			// $('.container').css('transform','perspective(800px) rotateX('+degx+'deg) rotateY('+degy+'deg)');
+	    			//图片在旋转时候大小不变
+	    			$('.container').css('transform','rotateX('+degx+'deg) rotateY('+degy+'deg)');
+	    			x = e.clientX;
+	    			y = e.clientY;
+	    		}).mouseup(function(){
+	    			$(this).unbind('mousemove');
+	    		});
+		    });
+		});
+	</script>
+</body>
+</html>

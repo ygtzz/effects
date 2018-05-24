@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>图文展现效果</title>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <figure class="test1">
+        <img src="001.jpg">
+        <figcaption>
+            <h2>皮城女警 凯特琳</h2>
+            <p>进步之城</p>
+            <p>美人胚子</p>
+            <p>神枪手</p>
+        </figcaption>
+    </figure>
+
+    <figure class="test2">
+        <img src="002.jpg">
+        <figcaption>
+            <h2>寒冰射手</h2>
+            <p>艾希</p>
+            <div></div>
+        </figcaption>
+    </figure>
+
+    <figure class="test3">
+        <img src="003.jpg">
+        <figcaption>
+            <h2>美杜莎</h2>
+            <p>红色的是法术穿透</p>
+        </figcaption>
+    </figure>
+
+    <figure class="test4">
+        <img src="004.jpg">
+        <figcaption>
+            <h2>虚空恐惧 科加斯</h2>
+            <p>非常致命的一位英雄</p>
+            <div></div>
+        </figcaption>
+    </figure>
+
+    <figure class="test5">
+        <img src="005.jpg">
+        <figcaption>
+            <h2>艾希绿装</h2>
+            <p>鲁滨逊造型</p>
+            <div></div>
+        </figcaption>
+    </figure>
+
+    <figure class="test6">
+        <img src="006.jpg">
+        <figcaption>
+            <h2>美杜莎绿装</h2>
+            <p>红色的是法术穿透</p>
+            <div class="line1"></div>
+            <div class="line2"></div>
+        </figcaption>
+    </figure>
+    <div class="clear"></div>
+    <div class="main">
+        <h3>知识点掌握</h3>
+        <ul>
+            <li>figure标签，html5语义化标签<br/>用于规定独立的流内容（图像、图表、照片、代码等等）</li>
+            <li>figcaption标签，html5语义化标签<br/>与figure配套使用，用于标签定义figure元素的标题</li>
+            <li>transform为css3属性，主要用于元素的变形处理,如下<br/> translate(平移); rotate(旋转) scale(缩放) skew(斜切)<br/> translate(10px,10px)表示水品垂直移动10px，默认为0；
+                <br/> rotate(90deg)表示元素旋转了90度，默认为0；另外，transform-origin：0 0；表示以中心点为左上角旋转；<br/> scale（0.5，0.5）表示元素缩XY轴均小了0.5，默认大小为1即scale(1,1),这里也可以定缩放的中心点transform-origin：0 0；表示以中心点为左上角缩放；<br/> skew(20deg,20deg)表示XY轴均斜切了20度，如果斜切90度那就是一条线看不见，默认为0；
+            </li>
+            <li>transition为css3属性，主要用于元素的动画时间处理，如下<br/> property：检索火设置对象中的参与过渡属性（all,transform...）
+                <br/> duration：过渡动画的持续时间
+                <br/> timing-function：检索火设置对象中过渡的动画类型(linear,ease,ease-in(渐快),ease-out（平滑，默认值）,ease-in-out（渐慢）)
+                <br/> delay：检索或设置对象延迟过渡的时间，例如transition-delay:0.3s;表示延迟0.3秒出现，这是最常用的。
+                <br/>
+            </li>
+            <li>position:relative;和position:absolute;的微妙关系：</li>
+            <li>Relative，CSS中的写法是：position:relative; 他的意思是绝对相对定位，他是参照父级的原始点为原始点，无父级则以BODY的原始点为原始点，配合TRBL进行定位，当父级内有padding等CSS属性时，当前级的原始点则参照父级内容区的原始点进行定位。<br/> 有时我们还需要依靠z-index来设定容器的上下关系，数值越大越在最上面，数值范围是自然数。当然有一点要注意，父子关系是无法用z-index来设定上下关系的，一定是子级在上父级在下。
+            </li>
+            <li>Absolute，CSS中的写法是：position:absolute; 他的意思是绝对定位，他是参照浏览器的左上角，配合TOP、RIGHT、BOTTOM、LEFT(下面简称TRBL)进行定位，在没有设定TRBL，默认依据父级的做标原始点为原始点。如果设定TRBL并且父级没有设定position属性，那么当前的absolute则以浏览器左上角为原始点进行定位，位置将由TRBL决定。<br/> 一般来讲，网页居中的话用Absolute就容易出错，因为网页一直是随着分辨率的大小自动适应的，而Absolute则会以浏览器的左上角为原始点，不会应为分辨率的变化而变化位置。很多人出错就在于这点上出错。而网页居左其特性与Relative很相似，但是还是有本质的区别的。
+            </li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+
+</html>

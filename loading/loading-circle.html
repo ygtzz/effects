@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>loading circle</title>
+    <style>
+        .loadCircle{
+            width:200px;
+            height:200px;
+            margin:50px auto;
+            position:relative;
+            border:1px solid #ddd;
+        }
+        .load-box{
+            width:100px;
+            height:200px;
+            position:absolute;
+            top:0;
+            overflow:hidden;
+        }
+        .load-left{left:0}
+        .load-right{right:0}
+        .load-progress{
+            width:160px;
+            height:160px;
+            border:20px solid transparent;
+            border-radius:50%;
+            position:absolute;
+            top:0
+        }
+        .load-circle-left{
+            border-bottom:20px solid green;
+            border-left:20px solid green;
+            left:0;
+            animation: left-progress 5s linear infinite;
+        }
+        .load-circle-right{
+            border-top:20px solid green;
+            border-right:20px solid green;
+            right:0;
+            animation: right-progress 5s linear infinite;
+        }
+        @keyframes left-progress{
+            0%{
+                transform: rotate(45deg);
+            }
+            50%,100%{
+                transform: rotate(225deg);
+            }
+        }
+        @keyframes right-progress{
+            0%,50%{
+                transform: rotate(45deg);
+            }
+            100%{
+                transform: rotate(225deg);
+            }
+        }
+    </style>
+</head>
+<body>
+   <div class="loadCircle">
+       <div class="load-box load-left">
+           <div class="load-progress load-circle-left"></div>
+       </div>
+       <div class="load-box load-right">
+           <div class="load-progress load-circle-right"></div>
+       </div>
+   </div>
+</body>
+</html>

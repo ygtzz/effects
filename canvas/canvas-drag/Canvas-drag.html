@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test</title>
+</head>
+<body>
+	<canvas id="c1" width="800" height="800" style="border: 1px solid gray"></canvas>
+	<img id="imgBg" src="imgs/bg3.jpg" style="opacity:0" />
+	<script type="text/javascript" src="../../lib/jquery.min.js"></script>
+	<script type="text/javascript">
+		var bMoveRect = false,
+			nCurrentX = 100,
+			nCurrentY = 100,
+			container = document.getElementById('c1'),
+			context = container.getContext('2d'),
+			oImg = document.getElementById('imgBg'),
+			$img = $(oImg),
+			$canvas = $(container),
+			oOffset;
+		$(function(){
+			fDrawing({x:nCurrentX,y:nCurrentY},{x:0,y:0});
+			$('canvas').on('mousedown',function(evt){
+				if(fInRect(evt)){
+					bMoveRect = true;
+					var position = fGetPositionOnCanvas(container,evt.offsetX,evt.offsetY);
+					oOffset = {x:position.x - nCurrentX,y:position.y - nCurrentY};
+				}
+			});
+			$('canvas').on('mouseup',function(){
+				bMoveRect = false;
+			});
+			$('canvas').on('mousemove',function(evt){
+				if(!bMoveRect){
+					return;
+				}
+				var position = fGetPositionOnCanvas(container,evt.offsetX,evt.offsetY);
+				nCurrentX = position.x;
+				nCurrentY = position.y;
+				fDrawing(position,oOffset);
+			});
+		});
+		function fDrawing(po,oOffset){
+			context.clearRect(0,0,800,800);
+			var nImgX = po.x - oOffset.x,
+			    nImgY = po.y - oOffset.y;
+			context.drawImage(oImg,nImgX,nImgY);
+			nCurrentX = nImgX;
+			nCurrentY = nImgY;
+		}
+		function fGetPositionOnCanvas(canvas,x,y){
+			var box = canvas.getBoundingClientRect();
+			var obj = {
+				x: x - box.left,
+				y: y - box.top
+			};
+			return obj;
+		}
+		function fInRect(evt){
+			var position = fGetPositionOnCanvas(container,evt.offsetX,evt.offsetY);
+			if(position.x > nCurrentX + oImg.width || position.x < nCurrentX){
+				return false;
+			}
+			if(position.y > nCurrentY + oImg.height || position.y < nCurrentY){
+				return false;
+			}
+			return true;
+		}
+	</script>
+</body>
+</html>
