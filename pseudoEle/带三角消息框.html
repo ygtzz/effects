@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>带三角消息框</title>
+    <style>
+        .container .chat-box {
+            position: relative;
+            border: 1px solid #6b6b6b;
+            border-radius: 5px;
+            box-shadow: 1px 1px 4px #6b6b6b;
+            width: 300px;
+        }
+        
+        .container .chat-box p {
+            margin: 0;
+            padding: 10px;
+            font-size: 18px;
+            font-family: "Microsoft Yahei";
+        }
+        
+        .container .chat-box:after,
+        .container .chat-box:before {
+            position: absolute;
+            content: " ";
+            width: 0;
+            height: 0;
+            border: solid transparent;
+            top: 100%;
+            left: 62%;
+        }
+        
+        .container .chat-box:before {
+            border-width: 10px;
+            border-top-color: #6b6b6b;
+            margin-left: -10px;
+        }
+        
+        .container .chat-box:after {
+            border-width: 9px;
+            border-top-color: white;
+            margin-left: -9px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="chat-box">
+            <p>
+                Resque (pronounced like "rescue") is a Redis-backed library for creating background jobs, placing those jobs on multiple queues, and processing them later.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
