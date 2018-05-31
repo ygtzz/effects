@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>svg环形进度条可变色</title>
+    <style type="text/css">
+        body{ padding-top:100px;}
+        .box{
+            margin:50px auto;
+            width:128px;height:128px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+   <svg width="100%" height="100%" viewBox="0 0 128 128">
+       <!--这里viewBox也可以不设置-->
+       <defs>
+           <!--defs是definitions的缩写，linearGradient标签必须嵌套在<defs>内部-->
+           <linearGradient id="svg_1" x1="0%" y1="0%" x2="100%" y2="64.9%">
+               <!--linearGradient定义线性渐变-->
+               <!--X1，X2，Y1，Y2属性定义渐变开始和结束位置，
+               当y1和y2相等，而x1和x2不同时，可创建水平渐变
+               当x1和x2相等，而y1和y2不同时，可创建垂直渐变
+               当x1和x2不同，且y1和y2不同时，可创建角形渐变-->
+               <stop offset="0%"   stop-color="red"/>
+               <stop offset="26%"  stop-color="orange"/>
+               <stop offset="42%"  stop-color="yellow"/>
+               <stop offset="71%"  stop-color="green"/>
+               <stop offset="100%"  stop-color="blue"/>
+               <!--渐变的颜色范围可由两种或多种颜色组成。每种颜色通过一个<stop>标签来规定。offset属性用来定义渐变的开始和结束位置。-->
+           </linearGradient>
+       </defs>
+       <circle r="62" cx="64" cy="64" stroke-width="4" stroke="#d3d3d3" fill="none" transform="rotate(-89,64 64)"></circle>
+       <!--circle标签可以定义一个圆-->
+       <!--r属性设置圆的半径，此demo设置为svg宽和高的1/2,减去stroke-width的宽度-->
+       <!--cr和cy属性定义圆点的x和y坐标。如果省略cx和cy，圆的中心会被设置为(0, 0),此demo设置为svg宽和高的1/2处，-->
+       <!--stroke-width属性这里定义了图形轮廓的厚度-->
+       <!--stroke属性这里定义了圆形轮廓的颜色-->
+       <!--fill属性设置圆形是否填充-->
+       <!--transform属性这里定义圆旋转rotate（-89，64，64)，-89是旋转的度数，后两个64是定义旋转的中心点，这里定义了圆心位置
+       注意：经测试旋转-90度时，在ios手机上app里圆是旋转不过来的，所以设置-89度-->
+       <circle class="circle" r="62" cx="64" cy="64" stroke-width="4" stroke="url(#svg_1)" stroke-linecap="round" transform="rotate(-89,64 64)" stroke-dasharray="0 389" fill="none" stroke-opacity="1">
+       </circle>
+       <!--这第二个圆形与第一个圆相似-->
+       <!--不同点，stroke通过url(线性渐变的id）把渐变链接到此，作为圆的轮廓颜色-->
+       <!--stroke-linecap属性定义进度条结尾处的样式，round为圆形，还可以为square方形-->
+       <!--stroke-dasharray用来创建虚线，第一个值表示虚线第一个线段的长度，第二个值表示线段后边第一个空隙的宽度，
+       这里设置时计算方式是，第二个值是圆周长（即2rπ），第一个值是（百分比x 圆周长），根据百分比的不同控制进度条长短-->
+       <!--stoken-opacity属性设置进度条圆心的透明度，当进度条值为0%时候，进度条也会显示一个小小点，此时可以设置stroke-opacity="0"-->
+   </svg>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script type="text/javascript">
+     var sum=0,timer;
+     clearInterval(timer);
+     timer=setInterval(function(){
+             sum+=50;
+             if(sum>=300){
+                 sum=300;
+                 clearInterval(timer);
+             }
+             $(".circle").attr("stroke-dasharray",sum+" 389");
+//             通过js让进度条有动态的效果
+     },20);
+</script>
+</body>
+</html>
