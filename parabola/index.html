@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Parabola</title>
+    <style>
+        *{margin:0;padding:0;}
+        *{box-sizing: border-box;}
+        body{padding-top:50px;}
+        .btn-buy:link,.btn-buy:visited,.btn-buy:hover,.btn-buy:active{
+            color:lightblue;
+            text-decoration: none;
+        }
+        .btn-buy{
+            width:20px;
+            height:20px;
+            border:1px solid lightgray;
+            border-radius:50%;
+            display: inline-block;
+            text-align:center;
+            line-height: 20px;
+        }
+        .goods{
+            list-style: none;
+            border:1px solid #ddd;
+            width:256px;
+            margin:0 auto;
+        }
+        .good-item{
+            height: 40px;
+            line-height: 40px;
+            border-bottom:1px solid #ddd;
+            text-align: right;
+            padding-right:20px;
+        }
+        .good-item:last-child{
+            border:0;
+        }
+        .shopcartc{
+            border-top:1px solid #ccc;
+            margin-top:30px;
+            padding-left:20px;
+            padding-top:4px;
+        }
+        .shopcart{
+            background-color:lightskyblue;
+            color:#fff;
+            padding:5px 10px;
+            text-decoration: none;
+        }
+        .ballout{
+            position: absolute;
+            transition: all 0.8s cubic-bezier(0.39,-0.4,0.83,0.23);
+            z-index: 10;
+        }
+        .ball{
+            width:15px;
+            height:15px;
+            background-color:lightseagreen;
+            border-radius: 50%;
+            display: inline-block;
+            transition: all 0.8s linear;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <div class="buyc">
+            <ul id="goods" class="goods">
+                <li class="good-item">
+                    <a href="javascript:;" class="btn-buy">+</a> 
+                </li>
+                <li class="good-item">
+                    <a href="javascript:;" class="btn-buy">+</a> 
+                </li>
+                <li class="good-item">
+                    <a href="javascript:;" class="btn-buy">+</a> 
+                </li>
+                <li class="good-item">
+                    <a href="javascript:;" class="btn-buy">+</a> 
+                </li>
+                <li class="good-item">
+                    <a href="javascript:;" class="btn-buy">+</a> 
+                </li>
+                <li class="good-item">
+                    <a href="javascript:;" class="btn-buy">+</a> 
+                </li>
+                <li class="good-item">
+                    <a href="javascript:;" class="btn-buy">+</a> 
+                </li>
+                <li class="good-item">
+                    <a href="javascript:;" class="btn-buy">+</a> 
+                </li>
+                <li class="good-item">
+                    <a href="javascript:;" class="btn-buy">+</a> 
+                </li>
+                <li class="good-item">
+                    <a href="javascript:;" class="btn-buy">+</a> 
+                </li>
+            </ul>
+            <div class="shopcartc">
+                <a id="shopcart" href="javascript:;" class="shopcart">购物车</a>
+            </div>     
+        </div>
+    </div>
+    <script>
+        var shopcart = document.querySelector('#shopcart');
+        var shopcartRect = shopcart.getBoundingClientRect();
+        var goods = document.querySelector('#goods');
+        goods.addEventListener('click',function(e){
+            var target = e.target;
+            if(target.className.indexOf('btn-buy') > -1){
+                e.target.insertAdjacentHTML('beforeBegin','<span style="left='+e.pageX+';top='+e.pageY+'" class="ballout"><span class="ball"></span></span>');
+                setTimeout(function(){
+                    var ballout = e.target.previousSibling,
+                        ballin = ballout.firstChild,
+                        x = shopcartRect.left - e.clientX + shopcartRect.width/2,
+                        y = shopcartRect.top - e.clientY;
+                    ballout.style.webkitTransform = 'translate3d(0,'+y+'px,0)';
+                    ballin.style.webkitTransform = 'translate3d('+x+'px,0,0)';
+                    setTimeout(function(){
+                        ballout.parentNode.removeChild(ballout);
+                    },800);
+                },300);
+            }
+        });
+    </script>
+</body>
+</html>
