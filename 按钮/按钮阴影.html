@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .btnswrapper{
+            width: 580px;
+            height: 100px;
+            position: relative;
+        }
+        .btnl{
+            border-radius: 10px;
+            background-image: -moz-linear-gradient( 90deg, rgb(255,172,40) 0%, rgb(255,204,23) 54%, rgb(255,235,6) 99%);
+            background-image: -webkit-linear-gradient( 90deg, rgb(255,172,40) 0%, rgb(255,204,23) 54%, rgb(255,235,6) 99%);
+            background-image: -ms-linear-gradient( 90deg, rgb(255,172,40) 0%, rgb(255,204,23) 54%, rgb(255,235,6) 99%);
+            position: absolute;
+            width: 580px;
+            height: 100px;
+            z-index: 62;
+        }
+        .btnl-active {
+            background-image: -moz-linear-gradient( 90deg, rgb(252,136,23) 0%, rgb(254,159,15) 54%, rgb(255,182,6) 99%);
+            background-image: -webkit-linear-gradient( 90deg, rgb(252,136,23) 0%, rgb(254,159,15) 54%, rgb(255,182,6) 99%);
+            background-image: -ms-linear-gradient( 90deg, rgb(252,136,23) 0%, rgb(254,159,15) 54%, rgb(255,182,6) 99%);
+        }
+        .btnl-inner{
+            border-radius: 10px;
+            background-color: #C40137;
+            margin-left:20px;
+            width: 540px;
+            height: 100px;
+            z-index: 2;
+            -webkit-box-shadow:0px 9px 20px #C40137; 
+            box-shadow:0px 9px 20px #C40137;
+        }
+        .btnswrapper{
+            width: 300px;
+            height: 100px;
+            position: relative;
+        }
+        .btns{
+            border-radius: 10px;
+            background-image: -moz-linear-gradient( 90deg, rgb(255,172,40) 0%, rgb(255,204,23) 54%, rgb(255,235,6) 99%);
+            background-image: -webkit-linear-gradient( 90deg, rgb(255,172,40) 0%, rgb(255,204,23) 54%, rgb(255,235,6) 99%);
+            background-image: -ms-linear-gradient( 90deg, rgb(255,172,40) 0%, rgb(255,204,23) 54%, rgb(255,235,6) 99%);
+            position: absolute;
+            width: 300px;
+            height: 100px;
+            z-index: 3;
+        }
+        .btns-active{
+            background-image: -moz-linear-gradient( 90deg, rgb(252,136,23) 0%, rgb(254,159,15) 54%, rgb(255,182,6) 99%);
+            background-image: -webkit-linear-gradient( 90deg, rgb(252,136,23) 0%, rgb(254,159,15) 54%, rgb(255,182,6) 99%);
+            background-image: -ms-linear-gradient( 90deg, rgb(252,136,23) 0%, rgb(254,159,15) 54%, rgb(255,182,6) 99%);
+        }
+        .btns-inner{
+            border-radius: 10px;
+            background-color: #C40137;
+            margin-left:20px;
+            width: 260px;
+            height: 100px;
+            z-index: 2;
+            -webkit-box-shadow:0px 9px 20px #C40137; 
+            box-shadow:0px 9px 20px #C40137;
+        }
+    </style>
+</head>
+<body>
+    <div class="btnlwrapper">
+        <a href="" class="btnl"></a>
+        <div class="btnl-inner"></div>
+    </div>
+    <br/><br/>
+    <div class="btnlwarpper">
+        <a href="" class="btnl btnl-active"></a>
+        <div class="btnl-inner"></div>
+    </div>
+    <br/><br/>
+    <div class="btnwrapper">
+        <a href="" class="btns"></a>
+        <div class="btns-inner"></div>
+    </div>
+    <br/><br/>
+    <div class="btnwrapper">
+        <a href="" class="btns btns-active"></a>
+        <div class="btns-inner"></div>
+    </div>
+</body>
+</html>
