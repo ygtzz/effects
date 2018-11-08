@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>图片对齐示例</title>
+    <style>
+        .box {
+            width: 50%;
+            padding: 20px;
+            margin: 20px auto;
+            background-color: #f0f3f9;
+            text-align: justify;
+        }
+        .list {
+            width: 96px;
+            display: inline-block;
+            padding-bottom: 20px;
+            text-align: center;
+            vertical-align: top;
+        }
+        /* .justify_fix {
+            display: inline-block;
+            width: 100%;
+            height: 0;
+            overflow: hidden;
+        } */
+        .justify_fix:after {
+            content: " ";
+            display: inline-block;
+            width: 100%;
+            height: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box justify_fix">
+        <span class="list"><img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3189276298,1072963024&fm=58" />
+            迎客松</span>
+        <span class="list"><img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3189276298,1072963024&fm=58" />
+            黄山迎客松</span>
+        <span class="list"><img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3189276298,1072963024&fm=58" />
+            黄山迎客松</span>
+        <span class="list"><img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3189276298,1072963024&fm=58" />
+            黄山迎客松</span>
+        <span class="list"><img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3189276298,1072963024&fm=58" />
+            黄山迎客松</span>
+        <span class="list"><img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3189276298,1072963024&fm=58" />
+            黄山迎客松</span>
+        <span class="list"><img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3189276298,1072963024&fm=58" />
+            黄山迎客松</span>
+        <span class="list"><img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3189276298,1072963024&fm=58" />
+            黄山迎客松</span>
+        <span class="list"><img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3189276298,1072963024&fm=58" />
+            黄山迎客松</span>
+        <span class="list"><img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3189276298,1072963024&fm=58" />
+            黄山迎客松</span>
+        <span class="list"><img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3189276298,1072963024&fm=58" />
+            黄山迎客松</span>
+        <!-- <span class="justify_fix"></span> -->
+    </div>
+</body>
+
+</html>
